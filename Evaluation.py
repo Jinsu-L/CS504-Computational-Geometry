@@ -35,7 +35,7 @@ class Evaluation:
 
                 # 실험 진행
                 start_time = time.time()
-                result = model.eval(test_dataset)
+                result = model.eval(testKD_dataset)
                 iter_result.append(start_time - tiem.time())
 
         

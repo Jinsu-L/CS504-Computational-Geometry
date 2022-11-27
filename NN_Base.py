@@ -7,9 +7,9 @@ class NNBase(ABC):
         pass
 
     @abstractmethod
-    def build(self):
+    def build(self, points):
         pass
 
     @abstractmethod
-    def search(self, e, k):
+    def search(self, query):
         pass
