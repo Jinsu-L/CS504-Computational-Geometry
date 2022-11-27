@@ -37,7 +37,7 @@ class RandData(Dataset):
         # self.dataset = np.concatenate(self.dataset)
 
 
-        mean = [np.random.random_sample() for _ in range(max_dim)]
+        mean = [np.random.random_sample() * 10 for _ in range(max_dim)]
         cov = []
         for _ in range(max_dim):
             cov.append([np.random.random_sample() * np.random.random_sample() for _ in range(max_dim)])

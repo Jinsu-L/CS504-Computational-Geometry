@@ -47,7 +47,7 @@ def run():
             t = time.process_time() - start
             results.append(t)
 
-        results = sorted(results)#[:-2]
+        results = sorted(results)[:-2]
         t = sum(results) / len(results)
         print("kd", dim, t * 1000, sep="\t")
 
@@ -66,7 +66,7 @@ def run():
             t = time.process_time() - start
             results.append(t)
 
-        results = sorted(results)#[:-2]
+        results = sorted(results)[:-2]
         t = sum(results) / len(results)
         print("ball", dim, t * 1000, sep="\t")
 
