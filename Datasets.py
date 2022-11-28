@@ -101,13 +101,13 @@ class RandData2(Dataset):
         #     if i >= size:
         #         break
         r = []
-        for ii, k in enumerate([7, 3]):
-            mean = [np.random.random_sample() + ii * 5 for _ in range(dim)]
+        for ii, k in enumerate([6, 3, 1]):
+            mean = [0 for _ in range(dim)]
             cov = []
             for i, _ in enumerate(range(dim)):
                 cov.append(
                     [
-                        abs(np.random.random_sample() / 100) if i == j else np.random.random_sample()
+                        abs(np.random.random_sample()) if i == j else np.random.random_sample()
                         for j, _ in enumerate(range(dim))])
             r.append(np.random.multivariate_normal(mean, cov, (size // 10) * k))
         self.dataset = np.concatenate(r)
