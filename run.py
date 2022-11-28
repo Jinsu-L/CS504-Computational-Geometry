@@ -2,7 +2,7 @@ import argparse
 import pickle
 import numpy as np
 from BF_NN import BruteForceNN
-from KD_NN_New import KDTreeNN
+from KD_NN import KDTreeNN
 from BT_NN import BallTreeNNN
 from Datasets import Cifar100, RandData, RandData2
 from itertools import product
@@ -23,7 +23,7 @@ def run():
     dataset = RandData2()
 
     target_dim = [4, 8, 16, 32, 64]  # , 64, 128, 256, 512, 1024]
-    target_size = [1000, 5000, 10000, 30000, 50000]  # , 20000000, 30000000, 40000000, 50000000]
+    target_size = [500, 1000, 5000, 10000, 30000, 50000]  # , 20000000, 30000000, 40000000, 50000000]
 
     # evaluation
     # for dim, size in product(target_dim, target_size):

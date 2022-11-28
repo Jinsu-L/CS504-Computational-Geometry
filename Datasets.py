@@ -78,17 +78,18 @@ class RandData2(Dataset):
         #     self.dataset.append(gen_points)
         # self.dataset = np.concatenate(self.dataset)
 
-        r = []
-        for ii, k in enumerate([7, 3]):
-            mean = [np.random.random_sample() + ii * 5 for _ in range(max_dim)]
-            cov = []
-            for i, _ in enumerate(range(max_dim)):
-                cov.append(
-                    [
-                        abs(np.random.random_sample() * np.random.random_sample()) if i == j else np.random.random_sample()
-                        for j, _ in enumerate(range(max_dim))])
-            r.append(np.random.multivariate_normal(mean, cov, (max_size // 10) * k))
-        self.dataset = np.concatenate(r)
+        # r = []
+        # for ii, k in enumerate([7, 3]):
+        #     mean = [np.random.random_sample() + ii * 5 for _ in range(max_dim)]
+        #     cov = []
+        #     for i, _ in enumerate(range(max_dim)):
+        #         cov.append(
+        #             [
+        #                 abs(np.random.random_sample() / 100 ) if i == j else np.random.random_sample()
+        #                 for j, _ in enumerate(range(max_dim))])
+        #     r.append(np.random.multivariate_normal(mean, cov, (max_size // 10) * k))
+        # self.dataset = np.concatenate(r)
+        self.dataset = []
 
         np.random.shuffle(self.dataset)
         gc.collect()
@@ -100,16 +101,15 @@ class RandData2(Dataset):
         #     if i >= size:
         #         break
         r = []
-        for k in range(2):
-            mean = [np.random.random_sample() + k * 10 for _ in range(dim)]
+        for ii, k in enumerate([7, 3]):
+            mean = [np.random.random_sample() + ii * 5 for _ in range(dim)]
             cov = []
             for i, _ in enumerate(range(dim)):
                 cov.append(
                     [
-                        np.random.random_sample() ** 2 * np.random.random_sample() ** 2 if i == j else np.random.random_sample() * 10
-                        for
-                        j, _ in enumerate(range(dim))])
-            r.append(np.random.multivariate_normal(mean, cov, size // 2))
+                        abs(np.random.random_sample() / 100) if i == j else np.random.random_sample()
+                        for j, _ in enumerate(range(dim))])
+            r.append(np.random.multivariate_normal(mean, cov, (size // 10) * k))
         self.dataset = np.concatenate(r)
 
         return self.dataset[:size, :dim]
