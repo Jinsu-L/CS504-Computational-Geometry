@@ -36,7 +36,7 @@ class BallTreeNN(NNBase):
         return self.build_BallTree_core(data)
     """
 
-    def build(self, points):
+    def build(self, points, infos):
         def make(point_list):
             if len(point_list) == 0:
                 return None

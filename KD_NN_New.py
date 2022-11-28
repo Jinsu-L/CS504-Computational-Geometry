@@ -1,5 +1,6 @@
 from NN_Base import NNBase
 from scipy.spatial import distance
+import numpy as np
 import heapq
 import gc
 
@@ -35,6 +36,13 @@ class KDTreeNN(NNBase):
             cur_dim = i % self.dim
 
             points = points[points[:, cur_dim].argsort()]
+            # mean_value = np.mean(points[:, cur_dim])
+            # mid_index = -1
+            # for i, point in enumerate(points[:, cur_dim]):
+            #     if point >= mean_value:
+            #         mid_index = i
+            #         break
+
             mid_index = len(points) // 2
             node = self.Node(points[mid_index], None, None, i)
             node.left = make(points[0:mid_index], i + 1)
